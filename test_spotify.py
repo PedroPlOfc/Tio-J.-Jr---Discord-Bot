@@ -17,3 +17,5 @@ else:
         print(f"O arquivo .cache foi criado? {CACHE_PATH.exists()}")
     except Exception as e:
         print(f"\n[FALHA DE AUTENTICAÇÃO]: {e}")
+
+# codigo backup do bot, pra ser usado de teste.

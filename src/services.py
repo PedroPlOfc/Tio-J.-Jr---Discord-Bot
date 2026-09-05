@@ -8,6 +8,7 @@ import yt_dlp
 
 from .config import SPOTIFY_ID, SPOTIFY_SECRET, YTDL_OPTIONS, YTDL_FLAT_OPTIONS
 
+# Configuração do Spotipy (API oficial do Spotify)
 sp = None
 if SPOTIFY_ID and SPOTIFY_SECRET:
     try:

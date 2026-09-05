@@ -29,7 +29,7 @@ YTDL_OPTIONS = {
     "default_search": "ytsearch",
     "extractor_args": {"youtube": {"player_client": "web"}}
 }
-
+# Opções para extração de links de playlists do YouTube sem baixar os arquivos
 YTDL_FLAT_OPTIONS = {
     "extract_flat": "in_playlist",
     "skip_download": True,
