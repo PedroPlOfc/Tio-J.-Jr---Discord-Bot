@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 import static_ffmpeg
-
+    
 # Define o caminho da RAIZ do projeto (onde fica o .env)
 BASE_DIR = Path(__file__).resolve().parent.parent
 CACHE_PATH = BASE_DIR / ".cache"
@@ -27,15 +27,30 @@ YTDL_OPTIONS = {
     "quiet": True,
     "no_warnings": True,
     "default_search": "ytsearch",
-    "extractor_args": {"youtube": {"player_client": "web"}}
+    # Mapeia clientes mais estáveis do YouTube para evitar bloqueios de player/DRM no web
+    "extractor_args": {
+        "youtube": {
+            "player_client": ["android", "mweb"]
+        }
+    },
+    # Força conexão via IPv4
+    "source_address": "0.0.0.0"
 }
+
 # Opções para extração de links de playlists do YouTube sem baixar os arquivos
 YTDL_FLAT_OPTIONS = {
     "extract_flat": "in_playlist",
     "skip_download": True,
     "quiet": True,
     "no_warnings": True,
-    "ignoreerrors": True
+    "ignoreerrors": True,
+    "default_search": "ytsearch",
+    "extractor_args": {
+        "youtube": {
+            "player_client": ["android", "mweb"]
+        }
+    },
+    "source_address": "0.0.0.0"
 }
 
 FFMPEG_OPTIONS = {
